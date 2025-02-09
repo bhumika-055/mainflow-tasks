@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+    <title>CALCULATOR</title>
+    <style>
+        body{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            background-color: white;
+            color: goldenrod;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header{
+            background-color: white;
+            color: goldenrod;
+            padding: 0.3rem;
+            font-size: 15px;     
+        }
+        section{
+            padding: 70px;
+        }
+        img{
+            max-width: 60%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        p{
+            line-height: 1.6;
+        }
+        footer{
+            color: goldenrod;
+            padding: 0.1rem;
+        }
+        #calulator{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            max-width: 300px;
+            margin: auto;
+            padding: 16px;
+            border: 1px solid green;
+            border: 1px solid green;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0.1);
+        }
+        button{
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid green;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #display{
+            grid-column: span 4;
+            margin-bottom: 8px;
+            padding: 8px;
+            font-size: 20px;
+            text-align: right;
+            border: 2px solid green;
+            border-radius: 1px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CALCULATOR</h1>
+    </header>
+    <section>
+        <div id="calculator">
+        <div id="display"></div>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('/')">/</button>
+        <br><button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('*')">*</button>
+        <br><button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('-')">-</button>
+        <br><button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <br><button onclick="calculateResult()">=</button>
+        </div>
+        <script>
+            let display = document.getElementById('display');
+            function appendToDisplay(value) {
+                display.textContent += value;
+            }
+            function clearDisplay() {
+                display.textContent = '';
+            }
+            function calculateResult() {
+                try {
+                    display.textContent = eval(display.textContent);
+                } catch(error){
+                    display.textContent = 'Error';
+                }
+            }
+        </script>
+    </section>
+    <footer>
+        <p>Develop a simplel calculator using HTML, CSS, and JavaScript.</p>
+    </footer>
+</body>
+</html>
